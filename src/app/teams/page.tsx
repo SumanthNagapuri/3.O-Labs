@@ -4,20 +4,21 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Linkedin, Github, Twitter } from "lucide-react";
+import Link from "next/link";
 
 const teamMembers = [
   { name: "Srikar", role: "Product Analyst", image: "/team/srikar.png" },
   { name: "Shiva", role: "Full Stack Developer", image: "/team/shiva.png" },
   { name: "Zuber", role: "Full Stack Developer", image: "/team/zuber.png" },
-  { name: "Keira Battye", role: "HR", image: "/team/keira.png" },
-  { name: "Dominic Game", role: "Full Stack Developer", image: "/team/dominic.png" },
-  { name: "James Vial", role: "Full Stack Developer", image: "/team/james.png" },
-  { name: "Gratian", role: "UI/UX Designer", image: "/team/james.png" },
-  { name: "Dinesh", role: "Frontend Developer", image: "/team/james.png" },
-  { name: "Suraj", role: "Full Stack Developer", image: "/team/james.png" },
-  { name: "Sumanth N", role: "Full Stack Developer", image: "/team/photo.png" },
-  { name: "Sumanth G", role: "Full Stack Developer", image: "/team/james.png" },
-  { name: "Sampath", role: "Full Stack Developer", image: "/team/james.png" },
+  { name: "Griffin", role: "HR", image: "/team/mahetaab.png" },
+  { name: "Ashvith", role: "Full Stack Developer", image: "/team/ashvith.png" },
+  { name: "Aqib", role: "Full Stack Developer", image: "/team/aqib.png" },
+  // { name: "Gratian", role: "UI/UX Designer", image: "/team/james.png" },
+  { name: "Dinesh", role: "Frontend Developer", image: "/team/dinesh.png" },
+  // { name: "Suraj", role: "Full Stack Developer"//, image: "/team/suraj.png" },
+  { name: "Sumanth N", role: "Full Stack Developer", image: "/team/sumanth1.png" },
+  { name: "Sumanth G", role: "Full Stack Developer", image: "/team/sumanth.png" },
+  { name: "Sampath", role: "Full Stack Developer", image: "/team/sampath.png" },
 ];
 
 export default function TeamsPage() {
@@ -190,7 +191,7 @@ export default function TeamsPage() {
 
           <div className="max-w-3xl mx-auto">
 
-            <h2 className="text-4xl md:text-5xl font-semibold leading-tight text-gray-900">
+            <h2 className="text-4xl md:text-4xl font-semibold leading-tight text-gray-900">
               Engineering intelligent systems for
               <br />
               ambitious brands
@@ -202,9 +203,22 @@ export default function TeamsPage() {
               engage users and streamline operations.
             </p>
 
-            <button className="mt-8 bg-black text-white px-7 py-3 rounded-full hover:opacity-90 transition">
-              Let’s Collaborate ↗
-            </button>
+            <Link href="/contact">
+  <button
+    style={{
+      marginTop: "32px",
+      background: "black",
+      color: "white",
+      padding: "12px 28px",
+      borderRadius: "999px",
+      border: "none",
+      cursor: "pointer",
+      transition: "opacity 0.2s",
+    }}
+  >
+    Let’s Collaborate ↗
+  </button>
+</Link>
 
           </div>
 

@@ -109,7 +109,6 @@ export default function ServicesPage() {
     if (!container) return;
 
     container.addEventListener("scroll", handleScroll);
-
     return () => container.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
@@ -126,87 +125,164 @@ export default function ServicesPage() {
 
       <main
         ref={containerRef}
-        className="h-screen overflow-y-auto bg-[#f7f7f7] pt-32"
+        style={{
+          height: "100vh",
+          overflowY: "auto",
+          background: "#f7f7f7",
+          paddingTop: "8rem",
+        }}
       >
         {/* HERO */}
 
-        <section className="text-center py-20 bg-gradient-to-b from-[#f4e3cf] via-[#f0dcc4] to-white">
-          <h1 className="text-5xl md:text-6xl font-semibold">
+        <section
+          style={{
+            textAlign: "center",
+            padding: "80px 20px",
+            background:
+              "linear-gradient(to bottom, #f4e3cf, #f0dcc4, white)",
+          }}
+        >
+          <h1
+            style={{
+              fontSize: "56px",
+              fontWeight: 600,
+            }}
+          >
             Our Capabilities
           </h1>
 
-          <p className="mt-6 text-lg max-w-3xl mx-auto bg-gradient-to-r from-[#ff4d4d] via-[#a855f7] to-[#3b82f6] bg-clip-text text-transparent">
-            We design and build scalable full-stack products, intelligent AI workflows,
-            and autonomous agents that transform how software operates and grows.
-            </p>
+          <p
+            style={{
+              marginTop: "24px",
+              fontSize: "18px",
+              maxWidth: "700px",
+              marginLeft: "auto",
+              marginRight: "auto",
+              background:
+                "linear-gradient(90deg,#ff4d4d,#a855f7,#3b82f6)",
+              WebkitBackgroundClip: "text",
+              color: "transparent",
+            }}
+          >
+            We design and build scalable full-stack products,
+            intelligent AI workflows, and autonomous agents
+            that transform how software operates and grows.
+          </p>
         </section>
 
         {/* SERVICES */}
 
-        <section className="max-w-[960px] mx-auto py-20 px-6">
-          <div ref={servicesRef} className="flex relative">
-
+        <section
+          style={{
+            maxWidth: "960px",
+            margin: "0 auto",
+            padding: "80px 24px",
+          }}
+        >
+          <div
+            ref={servicesRef}
+            style={{
+              display: "flex",
+              position: "relative",
+            }}
+          >
             {/* LEFT MENU */}
 
-            <div className="w-[170px] shrink-0 sticky top-[100px] h-fit">
-
-  <ul className="space-y-44">
-
-    {SECTIONS.map((section, i) => (
-
-      <li key={section.id}>
-
-        <button
-          onClick={() => scrollToSection(i)}
-          className={`flex items-center gap-2 text-sm font-semibold tracking-wide transition-colors
-          ${activeIndex === i ? "text-[#E8573A]" : "text-gray-400"}`}
-        >
-          {section.label} →
-        </button>
-
-      </li>
-
-    ))}
-
-  </ul>
-
-</div>
+            <div
+              style={{
+                width: "170px",
+                flexShrink: 0,
+                position: "sticky",
+                top: "100px",
+                height: "fit-content",
+              }}
+            >
+              <ul style={{ listStyle: "none", padding: 0 }}>
+                {SECTIONS.map((section, i) => (
+                  <li key={section.id} style={{ marginBottom: "170px" }}>
+                    <button
+                      onClick={() => scrollToSection(i)}
+                      style={{
+                        display: "flex",
+                        gap: "8px",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        letterSpacing: "0.05em",
+                        border: "none",
+                        background: "none",
+                        cursor: "pointer",
+                        color:
+                          activeIndex === i ? "#E8573A" : "#9ca3af",
+                      }}
+                    >
+                      {section.label} →
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
             {/* TRACKER */}
 
-            <div className="relative mx-8" style={{ width: LINE_WIDTH }}>
-
-              <div className="absolute top-0 left-0 h-full w-full bg-gray-300 rounded-full" />
-
+            <div
+              style={{
+                position: "relative",
+                margin: "0 32px",
+                width: LINE_WIDTH,
+              }}
+            >
               <div
-                className="absolute top-0 left-0 bg-[#E8573A] rounded-full transition-all duration-100"
                 style={{
-                  width: LINE_WIDTH,
-                  height: orangePx,
+                  position: "absolute",
+                  width: "100%",
+                  height: "100%",
+                  background: "#d1d5db",
+                  borderRadius: "999px",
                 }}
               />
 
+              <div
+                style={{
+                  position: "absolute",
+                  width: LINE_WIDTH,
+                  height: orangePx,
+                  background: "#E8573A",
+                  borderRadius: "999px",
+                  transition: "height 0.1s",
+                }}
+              />
             </div>
 
             {/* RIGHT CONTENT */}
 
-            <div className="flex-1">
-
+            <div style={{ flex: 1 }}>
               {SECTIONS.map((section, i) => (
-
-                <div 
-                key={section.id}
-                ref={(el) => {
-                  sectionRefs.current[i] = el;
-                }}
-                className="pb-20 scroll-mt-16 max-w-sm"
+                <div
+                  key={section.id}
+                  ref={(el) => {
+                    sectionRefs.current[i] = el;
+                  }}
+                  style={{
+                    paddingBottom: "80px",
+                    maxWidth: "420px",
+                  }}
                 >
-
-                  <h2 className="text-xl font-bold mb-4">
+                  <h2
+                    style={{
+                      fontSize: "20px",
+                      fontWeight: "bold",
+                      marginBottom: "16px",
+                    }}
+                  >
                     {section.title}
                   </h2>
 
-                  <p className="text-gray-600 mb-6">
+                  <p
+                    style={{
+                      color: "#6b7280",
+                      marginBottom: "24px",
+                    }}
+                  >
                     {section.description}
                   </p>
 
@@ -215,35 +291,53 @@ export default function ServicesPage() {
                     alt={section.title}
                     width={160}
                     height={160}
-                    className="mb-6"
+                    style={{ marginBottom: "24px" }}
                   />
 
-                  <p className="font-medium mb-2">
+                  <p
+                    style={{
+                      fontWeight: 500,
+                      marginBottom: "8px",
+                    }}
+                  >
                     {section.listHeading}
                   </p>
 
-                  <ul className="space-y-1 mb-6 text-gray-600">
-
+                  <ul
+                    style={{
+                      color: "#6b7280",
+                      marginBottom: "24px",
+                    }}
+                  >
                     {section.bullets.map((b) => (
                       <li key={b}>• {b}</li>
                     ))}
-
                   </ul>
 
-                  <p className="text-gray-400 mb-6">
+                  <p
+                    style={{
+                      color: "#9ca3af",
+                      marginBottom: "24px",
+                    }}
+                  >
                     {section.closing}
                   </p>
 
-                  <button className="bg-black text-white rounded-full px-6 py-2 text-sm">
+                  <button
+                    style={{
+                      background: "black",
+                      color: "white",
+                      borderRadius: "999px",
+                      padding: "10px 24px",
+                      border: "none",
+                      cursor: "pointer",
+                    }}
+                  >
                     Connect to team
                   </button>
-
                 </div>
-
               ))}
-
             </div>
-
           </div>
         </section>
 
