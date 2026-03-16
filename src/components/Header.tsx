@@ -10,17 +10,17 @@ export default function Header() {
 
         {/* Left Nav */}
         <nav className="hidden md:flex items-center gap-6 text-sm text-gray-700">
-          <Link href="/" className="hover:text-black">Home</Link>
+          <Link href="/" className="px-4 py-1 rounded-full font-medium hover:text-black">Home</Link>
 
           <Link
             href="/services"
-            className="bg-gray-100 px-4 py-1 rounded-full font-medium"
+            className="px-4 py-1 rounded-full font-medium hover:text-black"
           >
             Services
           </Link>
 
-          <Link href="/portfolio" className="hover:text-black">Portfolio</Link>
-          <Link href="/teams" className="hover:text-black">Teams</Link>
+          <Link href="/portfolio" className="px-4 py-1 rounded-full font-medium hover:text-black">Portfolio</Link>
+          <Link href="/teams" className="px-4 py-1 rounded-full font-medium hover:text-black">Teams</Link>
         </nav>
 
         {/* Logo */}

@@ -1,45 +1,57 @@
+import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+
+const links = [
+  { href: "/about", label: "About us" },
+  { href: "/contact", label: "Contact us" },
+  { href: "/services", label: "Services" },
+  { href: "/terms", label: "Terms & Conditions" },
+];
 
 export default function Footer() {
+  const [year] = useState(new Date().getFullYear());
+
   return (
-    <footer className="bg-black text-white pt-16 pb-32 relative overflow-hidden">
+    <footer className="bg-black text-white pt-16 pb-32 relative overflow-hidden min-h-[300px]">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="flex items-center mb-6 md:mb-0">
+            <Image
+              src="/3.0labs-logo.png"
+              alt="3.0 Labs"
+              width={110}
+              height={40}
+              className="object-contain"
+            />
+          </div>
 
-      <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
+          <div className="flex gap-8 text-sm text-gray-300 flex-wrap justify-center">
+            {links.map(({ href, label }) => (
+              <Link key={href} href={href} className="hover:underline">
+                {label}
+              </Link>
+            ))}
+          </div>
+        </div>
 
-        <div className="flex items-center">
+        <hr className="border-white-700 my-6 w-full opacity-100" />
+
+        <div className="text-xs text-gray-400 text-center">
+          ©{year} 3.0 Labs. All Rights Reserved
+        </div>
+      </div>
+
+      <div className="absolute inset-x-0 bottom-[-40px] flex justify-center opacity-40 pointer-events-none">
         <Image
-        src="/3.0labs-logo.png"
-        alt="3.0 Labs"
-        width={110}
-        height={40}
-        className="object-contain"
-        />
-        </div>
-
-        <div className="flex gap-8 text-sm text-gray-300">
-          <a href="#">About us</a>
-          <a href="#">Contact us</a>
-          <a href="#">Services</a>
-          <a href="#">Terms & Conditions</a>
-        </div>
-
-      </div>
-
-      <div className="max-w-6xl mx-auto px-6 mt-6 text-xs text-gray-400">
-        ©2025 3.0 Labs. All Rights Reserved
-      </div>
-
-      {/* Large Background Text */}
-      <div className="absolute bottom-0 left-0 right-0 flex justify-center opacity-40 pointer-events-none">
-
-        <img
           src="/3.0 Labs.png"
           alt="3.0 Labs"
-          className="w-[900px] max-w-none"
+          width={900}
+          height={300}
+          className="max-w-none translate-y-1/6"
+          priority={false}
         />
-
       </div>
-
     </footer>
   );
 }
